@@ -1,0 +1,125 @@
+<template>
+  <!-- <NuxtLoadingIndicator color="#9b59b6" :throttle="0" :height="3" /> -->
+  <!-- <NuxtLayout> -->
+  <NuxtPage />
+  <!-- </NuxtLayout> -->
+</template>
+
+<script setup lang="ts">
+// ------------------------
+// 頁面標題與 SEO
+// ------------------------
+useHead({
+  title: "首頁",
+  titleTemplate: (title?: string) => title ? `${title} - Zoe 的作品集` : "Zoe 的作品集",
+  htmlAttrs: { lang: "zh-TW" },
+  meta: [
+    { name: "description", content: "歡迎來到 Zoe 的作品集！這裡展示了我的作品、技能和聯絡方式。" },
+    { property: "og:title", content: "Zoe 的作品集" },
+    { property: "og:description", content: "歡迎來到 Zoe 的作品集！這裡展示了我的作品、技能和聯絡方式。" },
+    { property: "og:url", content: "https://你的網站網址.com" },
+    { property: "og:image", content: "https://你的網站網址.com/logo.png" },
+  ],
+  link: [
+    { rel: "icon", href: "/favicon-zoe.ico" }
+  ],
+  // ------------------------
+  // Schema.org JSON-LD
+  // ------------------------
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Zoe",
+        "url": "https://你的網站網址.com"
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Zoe 的作品集",
+        "url": "https://你的網站網址.com"
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "首頁",
+        "url": "https://你的網站網址.com"
+      })
+    }
+  ]
+});
+</script>
+
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+
+.page-container {
+  padding: 2rem calc(20vw + 1rem);
+  font-size: calc(0.8rem + 0.2vw);
+  @media (max-width: 768px) {
+    padding: 2rem 2rem;
+  }
+}
+
+.markdown {
+  letter-spacing: 0.07em;
+  p {
+    line-height: 1.6rem;
+  }
+  pre > code {
+    letter-spacing: normal;
+    line-height: 1.3rem;
+    &::-webkit-scrollbar {
+      height: 0.5rem !important;
+    }
+  }
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #c44949;
+  overflow-y: overlay;
+  font-family: "Noto Sans TC", Tahoma, Helvetica, Arial, "Microsoft Yahei",
+    STXihei, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #f5f5f5;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #a8a8a818;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(214, 214, 214, 0.377);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(214, 214, 214, 0.541);
+}
+</style>
